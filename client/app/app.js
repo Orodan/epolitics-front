@@ -5,6 +5,8 @@ import Components from './components/components';
 import AppComponent from './app.component';
 import 'normalize.css';
 
+import authService from './common/services/auth.service';
+
 angular.module('app', [
     uiRouter,
     Common,
@@ -12,9 +14,17 @@ angular.module('app', [
   ])
   .config(($locationProvider) => {
     "ngInject";
-    // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
-    // #how-to-configure-your-server-to-work-with-html5mode
+
     $locationProvider.html5Mode(true).hashPrefix('!');
+  })
+
+  .run(($state, $transitions, authService) => {
+    "ngInject";
+
+    $transitions.onStart({ to:'*' }, (trans) => {
+      if (trans.to().name === 'login') return;
+      if (!authService.isAuthenticated) $state.go('login');
+    });
   })
 
   .component('app', AppComponent);

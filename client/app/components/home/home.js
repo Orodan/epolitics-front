@@ -1,6 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import homeComponent from './home.component';
+import authService from '../../common/services/auth.service';
 
 let homeModule = angular.module('home', [
   uiRouter
@@ -19,6 +20,8 @@ let homeModule = angular.module('home', [
 })
 
 .component('home', homeComponent)
+
+.service('authService', authService)
   
 .name;
 
