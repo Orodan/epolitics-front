@@ -20,8 +20,8 @@ angular.module('app', [
 
   .run(($state, $transitions, authService) => {
     "ngInject";
-
-    $transitions.onStart({ to:'*' }, (trans) => {
+    
+    $transitions.onStart({ to: '*' }, (trans) => {
       if (trans.to().name === 'login'
           || trans.to().name === 'signup') return;
       if (!authService.isAuthenticated) $state.go('login');

@@ -6,6 +6,7 @@ class LoginController {
     this.authService = authService;
   }
 
+
   login (user) {
     this.authService.authenticate(user)
       .then(() => toastr.success('Welcome', 'Success'))
