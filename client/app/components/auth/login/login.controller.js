@@ -1,14 +1,15 @@
 class LoginController {
 
-  constructor ($scope) {
+  constructor (authService) {
     'ngInject';
     
-    this.$scope = $scope;
+    this.authService = authService;
   }
 
   login (user) {
-    console.log('login not implemented yet');
-    console.log(user);
+    this.authService.authenticate(user)
+      .then(() => toastr.success('Welcome', 'Success'))
+      .catch((err) => toastr.error(err, 'Error'));
   }
 
 }

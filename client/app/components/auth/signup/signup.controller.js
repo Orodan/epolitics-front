@@ -8,13 +8,8 @@ class SignupController {
 
   signup (user) {
     this.authService.register(user)
-      .then((result) => {
-        toastr.success('You have been registred', 'Success');
-        console.log(result);
-      })
-      .catch((err) => {
-        toastr.error('An error occured', 'Error');
-      });
+      .then(() => toastr.success('You have been registred', 'Success'))
+      .catch((err) => toastr.error(err, 'Error'));
   }
 }
 

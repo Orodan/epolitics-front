@@ -11,17 +11,23 @@ class authService {
 
   // Register a new user
   register (user) {
-    return this.$http.post(this.api + '/chosens/create')
-      .then(() => {
+    return this.$http.post(this.api + '/chosens/create', user)
+      .then((result) => {
         this.isAuthenticated = true;
-        return Promise.resolve('success');
-      }, () => {
-        return Promise.reject('error');
+      }, (err) => {
+        return Promise.reject('An error occured');
       });
   }
 
   // Authenticate an user
-  authenticate () {}
+  authenticate (user) {
+    return this.$http.post(this.api + '/chosens/login', user)
+      .then((result) => {
+        this.isAuthenticated = true;
+      }, (err) => {
+        return Promise.reject('An error occured');
+      });
+  }
 
   // Logout an user
   logout () {}
