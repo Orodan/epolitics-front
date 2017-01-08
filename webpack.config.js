@@ -35,6 +35,10 @@ module.exports = {
 
     new webpack.ProvidePlugin({
       jQuery: 'jquery'
+    }),
+
+    new webpack.ProvidePlugin({
+      toastr: 'toastr'
     })
   ]
 };

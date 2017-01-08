@@ -1,3 +1,16 @@
-<div>
-  <h1>{{ $ctrl.name }}</h1>
+
+<div class="signup">
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <h3>Signup</h2>
+      <form>
+        <input type="text" class="form-control" placeholder="First name" ng-model="user.firstName" required>
+        <input type="text" class="form-control" placeholder="Last name" ng-model="user.lastName" required>
+        <input type="email" class="form-control" placeholder="Email" ng-model="user.email" required>
+        <input type="password" class="form-control" placeholder="Password" ng-model="user.password" required>
+
+        <button type="submit" class="btn btn-primary" ng-click="$ctrl.signup(user)">Submit</button>
+      </form>
+    </div>
+  </div>
 </div>

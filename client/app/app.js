@@ -22,7 +22,8 @@ angular.module('app', [
     "ngInject";
 
     $transitions.onStart({ to:'*' }, (trans) => {
-      if (trans.to().name === 'login') return;
+      if (trans.to().name === 'login'
+          || trans.to().name === 'signup') return;
       if (!authService.isAuthenticated) $state.go('login');
     });
   })

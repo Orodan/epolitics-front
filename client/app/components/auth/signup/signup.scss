@@ -1,3 +1,10 @@
 .signup {
-  color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translatey(-50%);
+
+  form { text-align: center; }
+  input { margin-top: 10px; }
+  button { margin-top: 20px }
 }
